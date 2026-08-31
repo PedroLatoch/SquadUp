@@ -1,24 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
+
     <link rel="stylesheet" href="../../css/registro.css">
 </head>
+
 <body class="auth-page">
+
     <div class="auth-card">
+
         <img src="img/logo.png" alt="Logo" class="auth-logo">
-        <div id="modal_sem_usuario">
+
         <h1 class="auth-title">SquadUp Login</h1>
-        <label for="username" class="auth-label">usuario</label>
-        <input type="text" id="username" class="auth-input" placeholder="Username">
-        <label for="password" class="auth-label">senha</label>
-        <input type="password" id="password" class="auth-input" placeholder="Password">
-        <button id="login_button" class="auth-button">Login</button>
-        </div>
-        <p class="auth-text">nao possui cadastro? <a href="registro/registro.html">Registrar</a></p>
+
+        <label for="username" class="auth-label">Usuário</label>
+        <input
+            type="text"
+            id="username"
+            class="auth-input"
+            placeholder="Username"
+        >
+
+        <label for="password" class="auth-label">Senha</label>
+        <input
+            type="password"
+            id="password"
+            class="auth-input"
+            placeholder="Password"
+        >
+
+        <button id="login_button" class="auth-button">
+            Login
+        </button>
+
+        <p class="auth-text">
+            Não possui cadastro?
+            <a href="../registro/registro.html">Registrar</a>
+        </p>
+
     </div>
+
+
+    <div id="modal_sem_usuario"></div>
+
+    <script src="js/registro.js"></script>
+
 </body>
-<script src="js/registro.js"></script>
 </html>

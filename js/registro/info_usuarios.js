@@ -5,7 +5,7 @@ const confirm_password = document.getElementById('confirm-password');
 const register_button = document.getElementById('register-button');
 const login_button = document.getElementById('login_button')
 
-register_button.addEventListener('click', function(event) {
+register_button.addEventListener('click', function (event) {
     event.preventDefault();
 
     const usernameValue = username.value.trim();
@@ -18,16 +18,14 @@ register_button.addEventListener('click', function(event) {
         return;
     }
     if (passwordValue !== confirmPasswordValue) {
-        alert('As senhas não coincidem.');     
-        return; 
+        Modal_Registro_senhas_diferentes()
+        return;
     }
-     alert("Cadastro realizado com sucesso!");
 
-    console.log("Nome:", usernameValue);
-    console.log("E-mail:", emailValue);
+    location.href = '../login.html';
 });
-login_button.addEventListener('click', function(event){
- event.preventDefault();
+login_button.addEventListener('click', function (event) {
+   
 
 
 })
@@ -36,7 +34,7 @@ function Modal_Registro_sem_campos() {
 
     modal.innerHTML = `
         <div class="modal-conteudo">
-            <button class="modal-fechar" onclick="fecharModal()">×</button>
+            <button class="modal-fechar" onclick="fecharModalCampos()">×</button>
 
             <div class="modal-icone">!</div>
 
@@ -48,10 +46,30 @@ function Modal_Registro_sem_campos() {
 
     modal.classList.add("modal-aberto");
 }
-function fecharModal() {
+function fecharModalCampos() {
     const modal = document.getElementById("modal_sem_usuario");
 
     modal.classList.remove("modal-aberto");
+}
+function Modal_Registro_senhas_diferentes() {
+    const modal = document.getElementById("modal_sem_usuario");
 
-        modal.innerHTML = "";
+    modal.innerHTML = ` 
+    <div class="modal-conteudo"> 
+
+     <button class="modal-fechar" onclick="fecharModalSenha()">×</button> 
+
+     <div class="modal-icone">!</div> 
+
+     <h1>Senhas diferentes</h1> 
+
+     <p>As senhas informadas não coincidem. Verifique os campos e tente novamente.</p> 
+    </div> `;
+
+    modal.classList.add("modal-aberto");
+}
+function fecharModalSenha() {
+    const modal = document.getElementById("modal_sem_usuario");
+
+    modal.classList.remove("modal-aberto");
 }
