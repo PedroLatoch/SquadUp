@@ -43,19 +43,15 @@ function Modal_Registro_sem_campos() {
             <h1>Campos incompletos</h1>
 
             <p>Por favor, preencha todos os campos do registro para prosseguir.</p>
-
-            <p class="modal-registro">
-                Já possui cadastro?
-                <a href="../login.html">Fazer login</a>
-            </p>
         </div>
     `;
 
     modal.classList.add("modal-aberto");
 }
-
 function fecharModal() {
-    document
-        .getElementById("modal_sem_usuario")
-        .classList.remove("modal-aberto");
+    const modal = document.getElementById("modal_sem_usuario");
+
+    modal.classList.remove("modal-aberto");
+
+        modal.innerHTML = "";
 }
