@@ -45,9 +45,6 @@ if (login_button) {
     login_button.addEventListener('click', function (event) {
         event.preventDefault();
 
-        const usernameInput = document.getElementById("usename");
-        const passwordInput = document.getElementById("Passaword");
-
         const usernameValue = username.value;
         const passwordValue = password.value;
 
@@ -73,16 +70,28 @@ function Modal_Registro_sem_campos() {
 
     modal.innerHTML = `
         <div class="modal-conteudo">
-            <button class="modal-fechar" onclick="fecharModalCampos()">×</button>
 
-            <div class="modal-icone">!</div>
+            <button
+                type="button"
+                class="modal-fechar"
+                onclick="fecharModalCampos()"
+            >
+                ×
+            </button>
 
-            <h1>Campos incompletos</h1>
+            <div class="modal-icone">
+                !
+            </div>
+
+            <h1>
+                Campos incompletos
+            </h1>
 
             <p>
                 Por favor, preencha todos os campos do registro
                 para prosseguir.
             </p>
+
         </div>
     `;
 
@@ -98,7 +107,6 @@ function fecharModalCampos() {
 
 
 
-
 function Modal_Registro_senhas_diferentes() {
     const modal = document.getElementById("modal_sem_usuario");
 
@@ -106,15 +114,20 @@ function Modal_Registro_senhas_diferentes() {
         <div class="modal-conteudo">
 
             <button
+                type="button"
                 class="modal-fechar"
                 onclick="fecharModalSenha()"
             >
                 ×
             </button>
 
-            <div class="modal-icone">!</div>
+            <div class="modal-icone">
+                !
+            </div>
 
-            <h1>Senhas diferentes</h1>
+            <h1>
+                Senhas diferentes
+            </h1>
 
             <p>
                 As senhas informadas não coincidem.
@@ -136,23 +149,28 @@ function fecharModalSenha() {
 
 
 
-
 function Modal_Login() {
+
     const modal = document.getElementById("modal_senha_invalida");
 
     modal.innerHTML = `
         <div class="modal-conteudo">
 
             <button
+                type="button"
                 class="modal-fechar"
                 onclick="FecharModalLogin()"
             >
                 ×
             </button>
 
-            <div class="modal-icone">!</div>
+            <div class="modal-icone">
+                !
+            </div>
 
-            <h1>Usuário não encontrado</h1>
+            <h1>
+                Usuário não encontrado
+            </h1>
 
             <p>
                 As informações que você colocou não coincidem
@@ -167,6 +185,7 @@ function Modal_Login() {
 
 
 function FecharModalLogin() {
+
     const modal = document.getElementById("modal_senha_invalida");
 
     modal.classList.remove("modal-aberto");

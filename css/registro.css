@@ -2,91 +2,163 @@
     --bg-dark: #0f172a;
     --bg-panel: rgba(15, 23, 42, 0.8);
     --bg-card: rgba(15, 23, 42, 0.9);
+
     --primary: #7c3aed;
     --primary-strong: #5b21b6;
     --secondary: #22d3ee;
+
     --text-main: #e2e8f0;
     --text-soft: #cbd5e1;
+
     --input-bg: rgba(15, 23, 42, 0.65);
+
     --border: rgba(148, 163, 184, 0.35);
+
     --shadow: rgba(15, 23, 42, 0.45);
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* =========================
+   PÁGINA
+========================= */
+
 body.auth-page {
     min-height: 100vh;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     background: linear-gradient(
         135deg,
         var(--bg-dark) 0%,
         #1e293b 45%,
         #312e81 100%
     );
+
     color: var(--text-main);
+
     padding: 30px 20px;
 }
 
 
 /* =========================
-   CARD DE REGISTRO
+   CARD DE LOGIN / REGISTRO
 ========================= */
 
 .auth-card {
     width: 100%;
+
     max-width: 430px;
+
     background: var(--bg-card);
+
     border: 1px solid var(--border);
+
     border-radius: 20px;
+
     padding: 32px 28px;
-    box-shadow: 0 20px 45px var(--shadow);
+
+    box-shadow:
+        0 20px 45px var(--shadow);
+
     backdrop-filter: blur(6px);
 }
 
+
+/* =========================
+   LOGO
+========================= */
+
 .auth-logo {
     display: block;
+
     width: 90px;
     height: 90px;
+
     object-fit: contain;
+
     margin: 0 auto 18px;
+
     border-radius: 16px;
+
     background: rgba(255, 255, 255, 0.03);
+
     padding: 10px;
 }
 
+
+/* =========================
+   TÍTULO
+========================= */
+
 .auth-title {
     font-size: clamp(1.7rem, 2vw, 2.2rem);
+
     text-align: center;
+
     margin-bottom: 24px;
+
     color: var(--text-main);
+
     font-weight: 700;
+
     line-height: 1.2;
 }
 
+
+/* =========================
+   LABEL
+========================= */
+
 .auth-label {
     display: block;
+
     margin-bottom: 8px;
+
     color: var(--text-soft);
+
     font-size: 0.95rem;
+
     font-weight: 600;
+
     text-transform: lowercase;
 }
 
+
+/* =========================
+   INPUT
+========================= */
+
 .auth-input {
     width: 100%;
+
     padding: 13px 14px;
+
     margin-bottom: 18px;
+
     border: 1px solid var(--border);
+
     border-radius: 12px;
+
     background: var(--input-bg);
+
     color: var(--text-main);
+
     outline: none;
 
     transition:
@@ -94,21 +166,33 @@ body.auth-page {
         box-shadow 0.2s ease;
 }
 
+
 .auth-input::placeholder {
     color: #94a3b8;
 }
 
+
 .auth-input:focus {
     border-color: var(--secondary);
-    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+
+    box-shadow:
+        0 0 0 3px rgba(34, 211, 238, 0.2);
 }
+
+
+/* =========================
+   BOTÃO PRINCIPAL
+========================= */
 
 .auth-button {
     width: 100%;
+
     margin-top: 8px;
+
     padding: 14px 18px;
 
     border: none;
+
     border-radius: 12px;
 
     background: linear-gradient(
@@ -118,7 +202,9 @@ body.auth-page {
     );
 
     color: white;
+
     font-size: 1rem;
+
     font-weight: 700;
 
     cursor: pointer;
@@ -127,37 +213,65 @@ body.auth-page {
         transform 0.2s ease,
         box-shadow 0.2s ease;
 
-    box-shadow: 0 16px 30px rgba(124, 58, 237, 0.35);
+    box-shadow:
+        0 16px 30px rgba(124, 58, 237, 0.35);
 }
+
 
 .auth-button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 20px 32px rgba(124, 58, 237, 0.42);
+
+    box-shadow:
+        0 20px 32px rgba(124, 58, 237, 0.42);
 }
+
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   TEXTO INFERIOR
+========================= */
 
 .auth-text {
     margin-top: 22px;
+
     text-align: center;
+
     color: var(--text-soft);
+
     font-size: 0.95rem;
 }
 
+
 .auth-text a {
     color: var(--secondary);
+
     text-decoration: none;
+
     font-weight: 700;
 }
+
 
 .auth-text a:hover {
     text-decoration: underline;
 }
 
 
+/* ==================================================
+   MODAIS
+================================================== */
+
+
 /* =========================
-   MODAL
+   MODAL FECHADO
 ========================= */
 
-#modal_sem_usuario {
+#modal_sem_usuario,
+#modal_senha_invalida {
+
     display: none;
 
     position: fixed;
@@ -171,6 +285,7 @@ body.auth-page {
     background: rgba(0, 0, 0, 0.65);
 
     justify-content: center;
+
     align-items: center;
 
     padding: 20px;
@@ -179,56 +294,93 @@ body.auth-page {
 }
 
 
-/* Essa classe é adicionada pelo JavaScript */
-#modal_sem_usuario.modal-aberto {
+/* =========================
+   MODAL ABERTO
+========================= */
+
+#modal_sem_usuario.modal-aberto,
+#modal_senha_invalida.modal-aberto {
+
     display: flex;
 }
 
 
-/* Caixa do modal */
+/* =========================
+   CONTEÚDO DO MODAL
+========================= */
+
 .modal-conteudo {
+
     position: relative;
 
     width: 100%;
+
     max-width: 420px;
 
     background: #111827;
 
     border: 1px solid var(--border);
+
     border-radius: 18px;
 
     padding: 35px 30px;
 
     text-align: center;
 
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.5);
 
-    animation: aparecerModal 0.2s ease;
+    animation:
+        aparecerModal 0.2s ease;
 }
 
+
+/* =========================
+   TÍTULO DO MODAL
+========================= */
 
 .modal-conteudo h1 {
+
     color: var(--text-main);
+
     font-size: 1.7rem;
+
     margin-bottom: 12px;
+
+    font-weight: 700;
 }
 
+
+/* =========================
+   TEXTO DO MODAL
+========================= */
+
 .modal-conteudo p {
+
     color: var(--text-soft);
+
     font-size: 0.95rem;
+
     line-height: 1.5;
 }
 
 
-/* Ícone ! */
+/* =========================
+   ÍCONE DO MODAL
+========================= */
+
 .modal-icone {
+
     width: 60px;
+
     height: 60px;
 
     margin: 0 auto 20px;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     border-radius: 50%;
@@ -242,21 +394,29 @@ body.auth-page {
     color: white;
 
     font-size: 30px;
+
     font-weight: bold;
 }
 
 
-/* Botão X */
+/* =========================
+   BOTÃO X
+========================= */
+
 .modal-fechar {
+
     position: absolute;
 
     top: 12px;
+
     right: 15px;
 
     width: 32px;
+
     height: 32px;
 
     border: none;
+
     border-radius: 50%;
 
     background: transparent;
@@ -264,12 +424,15 @@ body.auth-page {
     color: var(--text-soft);
 
     font-size: 24px;
+
     font-weight: bold;
 
     cursor: pointer;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     transition:
@@ -277,22 +440,38 @@ body.auth-page {
         color 0.2s ease;
 }
 
+
 .modal-fechar:hover {
+
     background: rgba(255, 255, 255, 0.08);
+
     color: white;
 }
 
 
-/* Animação do modal */
+.modal-fechar:active {
+
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   ANIMAÇÃO DO MODAL
+========================= */
+
 @keyframes aparecerModal {
 
     from {
+
         opacity: 0;
+
         transform: scale(0.92);
     }
 
     to {
+
         opacity: 1;
+
         transform: scale(1);
     }
 }
@@ -305,20 +484,28 @@ body.auth-page {
 @media (max-width: 480px) {
 
     .auth-card {
+
         padding: 24px 18px;
+
         border-radius: 16px;
     }
 
+
     .auth-input,
     .auth-button {
+
         padding: 12px 13px;
     }
 
+
     .modal-conteudo {
+
         padding: 30px 20px;
     }
 
+
     .modal-conteudo h1 {
+
         font-size: 1.4rem;
     }
 }
