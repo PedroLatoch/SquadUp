@@ -45,11 +45,11 @@ if (login_button) {
     login_button.addEventListener('click', function (event) {
         event.preventDefault();
 
-        const usernameInput = document.getElementById("usenameValue");
-        const passwordInput = document.getElementById("PassawordValue");
+        const usernameInput = document.getElementById("usename");
+        const passwordInput = document.getElementById("Passaword");
 
-        const usernameValue = usernameInput.value.trim();
-        const passwordValue = passwordInput.value;
+        const usernameValue = username.value;
+        const passwordValue = password.value;
 
         const UsuarioSalvo = localStorage.getItem("Usuario");
         const SenhaSalva = localStorage.getItem("Senha");
